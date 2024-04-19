@@ -30,7 +30,7 @@
                                 <option value="nuevo usuario">Nuevo Usuario</option>
                             </select>
                         </div><br>
-                        <label style="font-weight:400;font-size:12px" class="text-center" for="terminos">
+                        <label style="font-weight:400;font-size:14px" class="text-center" for="terminos">
                             <input type="checkbox" id="terminos" required>
                             Acepto términos y condiciones sobre el <a style="color:black;text-decoration: underline"
                                 href="https://www.prosperando.co/seguridad-datos-personales/">tratamiento y protección
@@ -39,11 +39,9 @@
                         </label><br><br>
                         <div style="text-align: center">
                             <button type="submit" class="btn btn-primary btn-block">Registrar</button>
-                        </div>
-                        
+                        </div>  
                     </form>
                 </div>
-
             </div>
         </div>
     </div>

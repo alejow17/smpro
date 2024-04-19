@@ -20,7 +20,6 @@
                 </select><br>
                 <p style="text-align: left"><b>¡Recuerda!</b> Cada día es una nueva oportunidad para acercarte a tus sueños.</p>
             </div><br>
-            <div class="g-recaptcha" data-sitekey="TU_CLAVE_SECRETA"></div><br>
             <div class="text-center">
                 <button style="font-size:18px" onclick="calcularAhorro()" class="btn btn-primary">¡Simular!</button>
             </div>
@@ -34,11 +33,6 @@
 
     <script>
          function calcularAhorro() {
-            var response = grecaptcha.getResponse();
-            if (response.length == 0) {
-                alert("Por favor, completa el CAPTCHA para continuar.");
-                return;
-            }
             var montoMensual = parseFloat(document.getElementById("monto").value);
             if (isNaN(montoMensual) || montoMensual < 50000) {
                 alert("El monto mensual debe ser mínimo de 50000");
@@ -100,15 +94,15 @@
                 </a><br><br>
                 <div style=" margin-top:-30px;text-align: center;">
                     <h2 style="font-size:28px">Resultados de tu simulación</h2><hr>
-                    <h3 style="text-decoration-line: line-through;font-size:18px;font-weight: 300;">Con otras entidades: 1,25%</h3>
+                    <h3 style="font-size:15px;font-weight: 300;color:red"><b>Con otras entidades: 1,25%</b></h3>
                     <h3 style="font-size:18px;font-weight: 300;"><b style="font-weight:700;">¡¡Con nosotros!!</b> (Tasa efectiva anual): <b style="font-weight:700">${tasaAnual}%</b> </h3><br>
-                    <h3 style="font-size:18px;font-weight: 300;">Saldo del ahorro: <b style="font-weight:700"> $${formattedSaldoAhorro} </b></h3><br>
+                    <h3 style="font-size:18px;font-weight: 300;">Saldo del ahorro: <b style="font-weight:700"> $${formattedSaldoAhorro} </b></h3>
                     ${duracion !== 365 ? `<h3 style="font-size:18px;font-weight: 300;">Valor de los rendimientos: <b style="font-weight:700"> $${formattedTotalRendimientos} </b></h3><br>` : ''}
                     <h3 style="font-size:18px;font-weight: 300;">GMF: <b style="font-weight:700"> $0.00 </b></h3>
                     <h3 style="font-size:18px;font-weight: 300;">Retención en la fuente: <b style="font-weight:700"> $0.00 </b></h3>
-                    <h3 style="text-decoration-line: line-through;font-size:18px;font-weight: 300;">Con otras entidades: $ 16.000</h3><b style="font-size:18px">¡¡Nosotros lo asumimos!!</b></p><br>
-                    <h3 style="font-size:18px;font-weight: 300;">:¡Tu ahorro total! <b style="font-weight:700"> $${formattedSaldoAhorro} </b></h3><br>
-                    <p style="font-size:15px;text-align:center" ><b>¡¡RECUERDA!!</b> Esta es solo una <b>simulación</b>, y la tasa de interés puede adaptarse a tus necesidades con la entidad financiera.</p>
+                    <h3 style="font-size:15px;font-weight: 300;color:red"><b>Con otras entidades: $ 16.000</h3></b><b style="font-size:18px">¡¡Nosotros lo asumimos!!</b></p><br>
+                    <h3 style="font-size:18px;font-weight: 300;">¡Tu ahorro total! <b style="font-weight:700"> $${formattedSaldoAhorro} </b></h3><br>
+                    <p style="font-size:15px;text-align:center"><b>¡¡RECUERDA!!</b> Esta es solo una <b>simulación</b>, y la tasa de interés puede variar dependiendo de tus necesidades con nosotros.</p>
                     <a style="font-size:18px" href="/form" class="btn btn-primary" wire:navigate>¡Lo quiero!</a>
                 </div>
             `;
@@ -128,6 +122,4 @@
         // Función para obtener la fecha actual y establecerla en el campo de fecha de inicio
         document.getElementById('fechaInicio').value = new Date().toISOString().slice(0, 10);
     </script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
 </div>

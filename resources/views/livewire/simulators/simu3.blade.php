@@ -21,7 +21,6 @@
                     <input type="number" id="plazoDias" class="form-control" value="30" disabled>
                     <p style="text-align: left"><b>¡Recuerda!</b> Esta simulación se realiza en base a 30 días.</p>
                 </div><br>
-                <div class="g-recaptcha" data-sitekey="TU_CLAVE_SECRETA"></div><br>
                 <div style="text-align: center">
                     <button style="font-size:18px" type="submit" class="btn btn-primary">¡Simular!</button>
                 </div>
@@ -39,22 +38,18 @@
         document.getElementById("ganaMesForm").addEventListener("submit", function(event) {
             event.preventDefault();
             document.getElementById("fondoGris").style.display = "block";
-            var response = grecaptcha.getResponse();
-            if (response.length == 0) {
-                alert("Por favor, completa el CAPTCHA para continuar.");
-                return;
-            }
             var saldoCuenta = parseFloat(document.getElementById("saldoCuenta").value);
             var tasaInteres = calcularTasaInteres(saldoCuenta);
     
             // Calculamos la ganancia total en 30 días
             var gananciaTotal = saldoCuenta * tasaInteres;
+            var OtrasEntidades = gananciaTotal - (gananciaTotal * 0.2);
     
             // Formatear los resultados
             var formattedSaldoCuenta = saldoCuenta.toLocaleString('es-ES', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
             var formattedTasaInteres = (tasaInteres * 100).toLocaleString('es-ES', { style: 'decimal', maximumFractionDigits: 2 }) + "%";
             var formattedGananciaTotal = gananciaTotal.toLocaleString('es-ES', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
-            var formattedGananciaOtrasEntidades = (gananciaTotal * 0.5).toLocaleString('es-ES', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
+            var formattedGananciaOtrasEntidades = OtrasEntidades.toLocaleString('es-ES', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
     
             // Construir el HTML con los resultados
             var html = `
@@ -66,11 +61,11 @@
                 <h2 style="font-size:28px">Resultados de tu simulación</h2><hr>
                 <h3 style="font-size:18px;font-weight: 300;">Saldo en tu cuenta:<b style="font-weight:700"> $${formattedSaldoCuenta}</b></h3>
                 <p style="margin-top:5px;font-size:15px;text-align:center"><b>¡¡RECUERDA!!</b> Tu saldo en cuenta determina la tasa de interés que recibirás.</p>
-                <h3 style="font-size:18px;font-weight: 300;">Tasa de interés aplicada: <b style="font-weight:700">${formattedTasaInteres}</b> </h3><br>
-                <p style="text-decoration-line: line-through;font-size:18px;font-weight: 300;"><b>Ganancia estimada con otras entidades: </b> $${formattedGananciaOtrasEntidades}</p>   
+                <h3 style="font-size:18px;font-weight: 300;">Tasa de interés aplicada: <b style="font-weight:700">${formattedTasaInteres}</b></h3>
+                <p style="font-size:15px;font-weight: 300;color:red"><b>Ganancia estimada con otras entidades: $${formattedGananciaOtrasEntidades}</b></p>   
                 <h3 style="font-size:18px;font-weight: 300;">Ganancia total estimada en 30 días: <b style="font-weight:700">$${formattedGananciaTotal}</b></h3>
                 <p style="font-size:15px;text-align:center" ><b>¡Comparado con otras entidades financieras!</b> Nuestra tasa de interés es mucho más alta.</p>
-                <p style="font-size:15px;text-align:center" ><b>¡¡RECUERDA!!</b> Esta es solo una <b>simulación</b>, y la tasa de interés puede variar según las condiciones actuales.</p>
+                <p style="font-size:15px;text-align:center"><b>¡¡RECUERDA!!</b> Esta es solo una <b>simulación</b>, y la tasa de interés puede variar dependiendo de tus necesidades con nosotros.</p>
                 <a style="font-size:18px" href="/form" class="btn btn-primary" wire:navigate>¡Lo quiero!</a>
                 </div>
             `;
@@ -107,7 +102,5 @@
             }
         }
     </script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
 </body>
 </html>

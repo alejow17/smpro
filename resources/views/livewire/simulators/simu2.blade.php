@@ -19,7 +19,6 @@
                     </select><br>
                     <p style="text-align: left"><b>¡Recuerda!</b> Cada día es una oportunidad para hacer crecer tu inversión.</p>
                 </div><br>
-                <div class="g-recaptcha" data-sitekey="TU_CLAVE_SECRETA"></div><br>
                 <div style="text-align: center">
                     <button style="font-size:18px" type="submit" class="btn btn-primary">¡Simular!</button>
                 </div>
@@ -37,11 +36,6 @@
         document.getElementById("cdatForm").addEventListener("submit", function(event) {
             event.preventDefault();
             document.getElementById("fondoGris").style.display = "block";
-            var response = grecaptcha.getResponse();
-            if (response.length == 0) {
-                alert("Por favor, completa el CAPTCHA para continuar.");
-                return;
-            }
             var valorInversion = parseFloat(document.getElementById("valorInversion").value);
             var plazoDias = parseInt(document.getElementById("plazoDias").value);
             
@@ -58,10 +52,14 @@
             // Calculamos el total de ahorro
             var totalAhorro = valorInversion + totalIntereses;
 
+            var OtrasEntidades = totalAhorro - (totalAhorro * 0.2);
+
             // Formatear los resultados
             var formattedTotalIntereses = totalIntereses.toLocaleString('es-ES', { style: 'currency', currency: 'COP',  maximumFractionDigits: 0 });
             var formattedValorInversion = valorInversion.toLocaleString('es-ES', { style: 'currency', currency: 'COP',  maximumFractionDigits: 0 });
             var formattedTotalAhorro = totalAhorro.toLocaleString('es-ES', { style: 'currency', currency: 'COP',  maximumFractionDigits: 0 });
+            var formattedOtrasEntidades = OtrasEntidades.toLocaleString('es-ES', { style: 'currency', currency: 'COP',  maximumFractionDigits: 0 });
+
 
             // Construir el HTML con los resultados
             var html = `
@@ -75,8 +73,9 @@
                 <p style="margin-top:5px;font-size:15px;text-align:center"><b>¡¡RECUERDA!!</b> Cada peso que inviertas te acerca más a tus sueños financieros.</p>
                 <h3 style="font-size:18px;font-weight: 300;">Ganancia total en ${plazoDias} días: <b style="font-weight:700">$${formattedTotalIntereses}</b> </h3>
                 <p style="font-size:15px;text-align:center" ><b>¡¡RECUERDA!!</b> Cada día es una oportunidad para hacer crecer tu inversión.</p>
+                <p style="font-size:15px;font-weight: 300;color:red"><b>Ganancia estimada con otras entidades: $${formattedOtrasEntidades} </b></p>
                 <h3 style="font-size:18px;font-weight: 300;">Total ahorro: <b style="font-weight:700">$${formattedTotalAhorro}</b></h3><br>
-                <p style="font-size:15px;text-align:center" ><b>¡¡RECUERDA!!</b> Esta es solo una <b>simulación</b>, y la tasa de interés puede adaptarse a tus necesidades con la entidad financiera.</p>
+                <p style="font-size:15px;text-align:center"><b>¡¡RECUERDA!!</b> Esta es solo una <b>simulación</b>, y la tasa de interés puede variar dependiendo de tus necesidades con nosotros.</p>
                 <a style="font-size:18px" href="/form" class="btn btn-primary" wire:navigate>¡Lo quiero!</a>
                 </div>
             `;
@@ -93,7 +92,5 @@
             document.getElementById("fondoGris").style.display = "none";
         }
     </script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
 </body>
 </html>
