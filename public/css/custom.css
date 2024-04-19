@@ -1,0 +1,241 @@
+ /* Estilos adicionales */
+
+
+ @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
+ @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Russo+One&display=swap');
+
+ @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+ @import url('https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+ @import url('https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rubik+Doodle+Shadow&display=swap');
+
+ 
+h3{
+    text-shadow: 
+        0 0 6px rgb(255, 255, 255), /* Sombra para simular línea blanca */
+        0 0 6px white, /* Puedes añadir más sombras para hacer la línea más gruesa */
+        0 0 6px white;
+    font-size: 24px;
+}
+
+ body {
+    height: 100%;
+    background-image: url("../images/fondo1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+body,
+header,
+footer {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.welcometext{
+    padding: 20px;
+}
+
+.card-title{
+    font-size: 35px;
+}
+
+.simulator {
+    border-radius: 30px;
+    background-color: #ffffffe0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+} 
+
+.bienvenido {
+    color: rgba(255, 255, 255) !important;
+    text-align: center;
+    font-size: 40px;
+    border-radius: 30px;
+}
+
+
+
+
+
+
+.WelcomeDescripcion{
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.boton {
+    background-color: rgb(0, 46, 198);
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    
+}
+
+.boton:hover {
+    background-color: rgb(50, 50, 201);
+    color: white;
+    
+}
+
+.simulador1 {
+    background-image: url('../images/fondooficial.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 40px;
+    padding: 40px;
+    margin: 20px;
+    margin-top: 5px;
+    color: rgb(0, 0, 0);
+   
+}
+
+.simulador2 {
+    background-image: url('../images/fondooficial.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 40px;
+    padding: 40px;
+    margin: 20px;
+    margin-top: 5px;
+    color: rgb(0, 0, 0);
+}
+
+.simulador3 {
+    background-image: url('../images/fondooficial.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 40px;
+    padding: 40px;
+    margin: 20px;
+    margin-top: 5px;
+    color: rgb(0, 0, 0);
+}
+
+
+.centrado-vertical {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+}
+
+.centrado-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.centrado-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.navbar {
+    height: 100px;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.popup {
+    width: 80%; /* Cambiar el ancho a un porcentaje */
+    max-width: 600px; /* Establecer un ancho máximo */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 9999;
+    border-radius: 30px;
+    overflow-y: auto; /* Agregar scroll vertical */
+    max-height: 90vh; /* Establecer altura máxima del popup */
+}
+
+/* Estilos adicionales para hacerlo responsive */
+@media (max-width: 576px) {
+    .popup {
+        width: 95%; /* Reducir el ancho para dispositivos más pequeños */
+        max-width: none; /* Quitar el ancho máximo */
+        font-size: 14px; /* Ajustar el tamaño de fuente */
+    }
+}
+
+
+
+
+footer {
+    background-color: #ffffff;
+    /* Color de fondo del footer */
+    color: #000;
+    /* Color del texto */
+    padding: 20px;
+    /* Espaciado interno */
+    text-align: center;
+    /* Alineación del texto al centro */
+}
+
+.container {
+    margin-top: 50px;
+    /* Margen superior */
+    margin-bottom: 50px;
+}
+
+
+
+
+.circular-image {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.movimiento img {
+    animation: movimientoLogo 2s infinite;
+    /* La animación dura 2 segundos y se repite infinitamente */
+}
+
+@keyframes movimientoLogo {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(20px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+.contenedor1 {
+    padding: 10px;
+    /* Añade un espacio alrededor del contenido principal */
+}
+
+.form {
+    border-radius: 30px;
+    background-color: #ffffffdf;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+}
+
+Label {
+    font-size: 16px;
+    font-weight: 700;
+}
